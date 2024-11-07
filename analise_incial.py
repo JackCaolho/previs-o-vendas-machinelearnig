@@ -6,6 +6,9 @@ import matplotlib.pyplot as plt
 # Carregar os dados
 df = pd.read_csv("sales.csv")
 
+# Converter 'Date' para formato datetime
+df['Date'] = pd.to_datetime(df['Date'])
+
 # Descrição estatística para entender as distribuições
 print("\nEstatísticas descritivas:")
 print(df.describe())
@@ -18,9 +21,6 @@ df[['Weekly_Sales', 'Fuel_Price', 'Unemployment', 'Temperature', 'CPI']].hist(bi
 plt.suptitle("Distribuição das variáveis", y=1.02)
 plt.tight_layout()
 plt.show()
-
-# Converter 'Date' para formato datetime
-df['Date'] = pd.to_datetime(df['Date'])
 
 # Gráficos de linha para tendências temporais
 plt.figure(figsize=(10, 8))
